@@ -1,5 +1,5 @@
 FROM python:3.7-buster
-LABEL maintainer="Martin Jones <whatdaybob@outlook.com>"
+LABEL maintainer="Dan Willman <sonarr_youtubedl@danwillman.com>"
 
 # Update and install ffmpeg
 RUN apt-get update && \
@@ -8,6 +8,9 @@ RUN apt-get update && \
 # Copy and install requirements
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
+
+# Get us yt-dlp
+RUN python3 -m pip install -U yt-dlp
 
 # create abc user so root isn't used
 RUN \

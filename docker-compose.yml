@@ -1,0 +1,14 @@
+version: '3'
+services:
+  sonarr_youtubedl:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sonarr_youtubedl/latest
+    container_name: sonarr_youtubedl
+    volumes:
+      - /Users/dan/code/sonarr_youtubedl/config:/config #make sure you set this to your local config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
